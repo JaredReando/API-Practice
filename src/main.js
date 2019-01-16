@@ -20,6 +20,7 @@ $(document).ready(function() {
     request.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
         response = JSON.parse(this.responseText);
+
         getElements(response);
       }
     }
@@ -35,12 +36,25 @@ $(document).ready(function() {
       $("#character-gender").text( response.results[0].gender);
       $("#character-origin").text( response.results[0].origin.name);
 
+      let searchResults = response.results;
+
+      let searchOutputHTML = ""
+      searchResults.forEach(function(element) {
+        searchOutputHTML += `<li>${element.name}</li>`
+
+      });
+      $("#search-results").html(searchOutputHTML);
+
     }
+
+
+
+
   });
 
   let loopNumber = 1;
 
-  $("#click-test").click(function() {
+  $("#character-image").click(function() {
       let testValue = $("#previous-button").val();
       console.log(testValue);
 
