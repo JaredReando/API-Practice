@@ -1,4 +1,4 @@
-import { Giphy } from './giphy';
+import { Character } from './game';
 
 import './styles.css';
 import $ from 'jquery';
@@ -55,9 +55,6 @@ $(document).ready(function() {
   let loopNumber = 1;
 
   $("#character-image").click(function() {
-      let testValue = $("#previous-button").val();
-      console.log(testValue);
-
       $("#character-image").attr("src", response.results[loopNumber].image);
       $("#character-name").text( response.results[loopNumber].name);
       $("#character-status").text( response.results[loopNumber].status);
