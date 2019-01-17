@@ -1,7 +1,7 @@
 export class Character {
 
   constructor(number) {
-    this.requestAPI = new Promise(function(resolve) {
+    this.requestAPI = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
       let url = `https://rickandmortyapi.com/api/character/${number}`;
         request.onload = function() {
@@ -18,13 +18,15 @@ export class Character {
     this.requestAPI.then((response) => {
       this.responseObject = JSON.parse(response);
     });
-    // this.request = new XMLHttpRequest();
-    // this.URL = `https://rickandmortyapi.com/api/character/${number}`
-    // this.sendCall();
-    // this.grabWebInfo();
   }
+}
 
 
+
+  // this.request = new XMLHttpRequest();
+  // this.URL = `https://rickandmortyapi.com/api/character/${number}`
+  // this.sendCall();
+  // this.grabWebInfo();
 
   // grabWebInfo() {
   //   let waitTimer = setTimout(() => {
@@ -39,16 +41,7 @@ export class Character {
   //   this.request.send();
   // }
 
-  getCharacters(number) {
-    let characters = [];
-    for(var i = 0; i < number; i++) {
-      let randomNum = Math.floor((Math.random() * 493));
-      characters.push(randomNum);
-    }
-    return characters;
-  }
 
-}
 
 
 //

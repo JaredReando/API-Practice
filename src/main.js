@@ -1,4 +1,5 @@
-import { Character } from './game';
+import { Character } from './character';
+import { Game } from './game';
 
 import './styles.css';
 import $ from 'jquery';
@@ -7,6 +8,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 $(document).ready(function() {
+
+  let game = new Game(4);
+
+  let gameCharacters = game.returnNames();
+  let gameImages = game.returnImages();
+  let gameOutputHTML = "";
+
+  gameCharacters.forEach(function(characterName) {
+    gameOutputHTML += `<li>${characterName}</li>`
+    console.log(characterName)
+  });
+  $("#game-characters").html(gameOutputHTML);
+
+
+
 
   let response;
 
@@ -37,19 +53,13 @@ $(document).ready(function() {
       $("#character-origin").text( response.results[0].origin.name);
 
       let searchResults = response.results;
+      let searchOutputHTML = "";
 
-      let searchOutputHTML = ""
       searchResults.forEach(function(element) {
         searchOutputHTML += `<li>${element.name}</li>`
-
       });
       $("#search-results").html(searchOutputHTML);
-
     }
-
-
-
-
   });
 
   let loopNumber = 1;
