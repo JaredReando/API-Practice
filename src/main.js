@@ -11,16 +11,21 @@ $(document).ready(function() {
 
   let game = new Game(4);
 
-  let gameCharacters = game.returnNames();
-  let gameImages = game.returnImages();
-  let gameOutputHTML = "";
 
-  gameCharacters.forEach(function(characterName) {
-    gameOutputHTML += `<li>${characterName}</li>`
-    console.log(characterName)
-  });
-  $("#game-characters").html(gameOutputHTML);
-
+      let gameCharacters = game.returnNames();
+      let gameImages = game.returnImages();
+      console.log(gameImages);
+      let characterHTML = "";
+      let imageHTML = "";
+      gameCharacters.forEach(function(characterName) {
+        characterHTML += `<li>${characterName}</li>`
+      });
+      $("#game-characters").html(characterHTML);
+      gameImages.forEach(function(characterImage) {
+        imageHTML += `<li><img src="${characterImage}" alt=""></li>`;
+        console.log(imageHTML);
+      });
+      $("#game-images").html(imageHTML);
 
 
 

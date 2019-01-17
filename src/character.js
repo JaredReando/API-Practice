@@ -1,9 +1,14 @@
 export class Character {
 
-  constructor(number) {
-    this.requestAPI = new Promise(function(resolve, reject) {
+  constructor(characterId) {
+    this.characterId = characterId;
+  }
+
+  promise() {
+    return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
-      let url = `https://rickandmortyapi.com/api/character/${number}`;
+      let url = `https://rickandmortyapi.com/api/character/${this.characterId}`;
+
         request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
@@ -11,15 +16,14 @@ export class Character {
           reject(Error(request.statusText));
         }
       }
+
       request.open("GET", url, true);
       request.send();
-    });
 
-    this.requestAPI.then((response) => {
-      this.responseObject = JSON.parse(response);
     });
   }
 }
+
 
 
 
