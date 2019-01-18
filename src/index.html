@@ -10,11 +10,11 @@
         <h2>See a Rick and Morty Character:</h2>
         <div class="character-display">
           <img id="character-image" src="https://cdn.pixabay.com/photo/2017/09/28/22/43/database-search-2797375_1280.png" alt="">
-          <h3 id="character-name">name</h3>
-          <p id="character-status">status</p>
-          <p id="character-species">species</p>
-          <p id="character-gender">gender</p>
-          <p id="character-origin">origin</p>
+          <h3 id="character-name"></h3>
+          <p id="character-status"></p>
+          <p id="character-species"></p>
+          <p id="character-gender"></p>
+          <p id="character-origin"></p>
         </div>
       </div>
     </div>
@@ -27,9 +27,7 @@
         <input id="character-search-input" type="text" name="" value="">
         <button id="search-submit" type="submit" name="button">Submit</button>
 
-        <ul id="search-results">
-
-        </ul>
+        <ul class="list-unstyled" id="search-results"></ul>
       </div>
 
       <nav aria-label="Page navigation example">
@@ -49,16 +47,15 @@
         <p>Match the characters image to their name!</p>
         <div class="row">
           <div class="character-image"></div>
-          <ul id="game-images">
+          <ul class="list-unstyled" id="game-images"></ul>
 
-          </ul>
+          <select class="form-control" id="game-characters-select"></select>
+
         </div>
 
         <div class="row">
           <div class="character-name">
-          <ul id="game-characters">
-
-          </ul>
+          <ul class="list-unstyled" id="game-characters"></ul>
         </div>
         </div>
       </div>

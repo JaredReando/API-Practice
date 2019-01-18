@@ -22,35 +22,32 @@ export class Game {
         let jason = JSON.parse(resolve);
         let characterName = jason.name;
         let characterImage = jason.image;
-        characters.push([characterName, characterImage]);
+        let characterId = jason.id;
+        characters.push([characterName, characterImage, characterId]);
       })
-      // .then(function(response) {
-      //   let responseInfo = JSON.parse(response);
-      //   let name = responseInfo[0];
-      //   let image = responseInfo[1];
-      // })
-
     })
     return characters;
   }
-  //
-  // returnNames() {
-  //   let names = [];
-  //   this.characters.forEach(function(arrayPos) {
-  //     let name = arrayPos[0];
-  //     names.push(name);
-  //   });
-  //   return names;
-  // }
-  //
-  // returnImages() {
-  //   let images = [];
-  //   this.characters.forEach(function(arrayPos) {
-  //     let image = arrayPos[1];
-  //     images.push(image)
-  //   });
-  //   return images;
-  // }
+
+  returnNames() {
+    let names = [];
+    this.characters.forEach(function(arrayPos) {
+      let name = arrayPos[0];
+      let id = arrayPos[2];
+      names.push([name, id]);
+    });
+    return names;
+  }
+
+  returnImages() {
+    let images = [];
+    this.characters.forEach(function(arrayPos) {
+      let image = arrayPos[1];
+      let id = arrayPos[2];
+      images.push([image, id])
+    });
+    return images;
+  }
 
 
 }
